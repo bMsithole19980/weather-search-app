@@ -1,5 +1,5 @@
 body{
-  background-color: #2f2e2e;
+  background-color: white;
 }
 body.dark-mode{
   background-color: #1a1a1a;
@@ -111,7 +111,7 @@ body.dark-mode{
   margin-left: 1%;
   margin-top: 10%;
   width: 96%;
-  height: 510px;
+  height: 610px;
   top: -50px;
   border-radius: 5px;
   position: relative;
