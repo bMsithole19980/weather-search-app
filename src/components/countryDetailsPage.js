@@ -42,12 +42,13 @@ function CountryDetailsPage() {
     }, [darkMode])
 
     //function to get native name based on the language code
-    const getNativeName = (languageCode) => {
+    const getNativeName = (userLanguage) => {
         if (country && country.name && country.name.native) {
-            const nativeName = country.name.native["eng"]?.common;
+            const nativeName =country.name.native[userLanguage]?.common;
+            console.log("Native name: " ,nativeName);
             return nativeName || 'Native not availble';
         }
-        return 'Native Name not available';
+        
     };
 
     return (
@@ -88,11 +89,11 @@ function CountryDetailsPage() {
                         </div>
                         <div className='country-detail'>
                             <h2 style={{ fontSize: "50px", fontWeight: "lighter" }}>{country.name.common}</h2>
-                            <span>Native Name : {getNativeName()}</span><br></br>
+                            <span>Native Name : {getNativeName('eng')}</span><br></br>
                             <span>Population :{country.population}</span><br></br>
                             <span className='span-two'>Region :{country.region}</span><br></br>
-                            <span>Capital: {country.capital}</span><br></br><br></br>
-                            <span>Border Countries: {country.borders}</span>
+                            <span>Capital: {country.capital.join(', ')}</span><br></br><br></br>
+                            <span>Border Countries: {country.borders.join(', ')}</span>
                         </div>
                         <div className='extra-detail'>
                             <span>Top Level Domain: {country.tld[0]} </span><br></br>
